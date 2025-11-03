@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request, HTTPException, Depends
 from fastapi.security import APIKeyHeader
-# from routers import ingest, retrieve, generate
+from routers import ingest, retrieve, generate
 import os
 from dotenv import load_dotenv
 

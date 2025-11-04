@@ -20,7 +20,7 @@ def verify_api_key_dependency(api_key: str = Depends(api_key_header)):
 
 app.include_router(ingest.router)
 app.include_router(retrieve.router)
-# app.include_router(generate.router)
+app.include_router(generate.router)
 
 @app.get("/")
 def root(api_key: str = Depends(verify_api_key_dependency)):

@@ -15,7 +15,7 @@ def generate_response(request: GenerateRequest):
         retraived_info = rag.query(request.query, n_results=3,)
         lang = retraived_info["query_language"]
         combined_text = " ".join([doc["content"] for doc in retraived_info["results"]])
-        mock_response = f"Based on retrieved documents, here’s the summary: {combined_text[:300]}..."
+        mock_response = f"Based on retrieved documents, here’s the summary: {combined_text}..."
 
         
         return {

@@ -1,0 +1,51 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# UV cache
+.uv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+LICENSE
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Environment files (should be passed at runtime)
+.env
+.env.*
+
+# Test files
+tests/
+*.test.py
+
+# Media uploads (if you want to use volumes instead)
+# media/
+
+# Data files (if you want to use volumes instead)
+# data/
+

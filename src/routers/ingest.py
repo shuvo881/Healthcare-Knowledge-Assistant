@@ -1,11 +1,11 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException
 import os
 from rag import MultilingualRAG
-
+from pathlib import Path
 
 router = APIRouter(prefix="/ingest", tags=["Ingestion"])
 
-UPLOAD_DIR = r"media\uploads"
+UPLOAD_DIR = Path("media") / "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 @router.post("/")

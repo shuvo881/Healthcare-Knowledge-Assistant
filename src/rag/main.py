@@ -5,10 +5,11 @@ import faiss
 import numpy as np
 import json
 from typing import List, Dict
+from pathlib import Path
 from .translator import TranslatorAdapter
 
 class MultilingualRAG:
-    def __init__(self, embedding_dim=384, index_path=r"data\faiss_index.faiss", store_path=r"data\doc_store.json"):
+    def __init__(self, embedding_dim=384, index_path="data/faiss_index.faiss", store_path="data/doc_store.json"):
         self.embedding_model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
         self.translator = TranslatorAdapter()
         

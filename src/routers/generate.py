@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from rag import MultilingualRAG
+from rag import RAGLLM
 
 router = APIRouter(prefix="/generate", tags=["Generation"])
 
@@ -15,8 +16,11 @@ def generate_response(request: GenerateRequest):
         retraived_info = rag.query(request.query, n_results=3,)
         lang = retraived_info["query_language"]
         combined_text = " ".join([doc["content"] for doc in retraived_info["results"]])
-        mock_response = f"Based on retrieved documents, here’s the summary: {combined_text}..."
-
+        llm = RAGLLM()
+        try:
+            mock_response = llm.generate(request.query, combined_text, language=lang)
+        except Exception as e:
+            mock_response = f"Based on retrieved documents, here’s the summary: {combined_text}"
         
         return {
             "input_language": lang,

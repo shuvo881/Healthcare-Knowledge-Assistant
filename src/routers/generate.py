@@ -21,6 +21,7 @@ def generate_response(request: GenerateRequest):
             mock_response = llm.generate(request.query, combined_text, language=lang)
         except Exception as e:
             mock_response = f"Based on retrieved documents, here’s the summary: {combined_text}"
+            print(f"LLM generation failed: {e}")
         
         return {
             "input_language": lang,

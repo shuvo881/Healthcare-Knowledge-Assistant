@@ -22,8 +22,12 @@ RUN mkdir -p media/uploads
 # Expose port 8000
 EXPOSE 8000
 
+ARG API_KEY
+ARG HF_TOKEN
+
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
+ENV API_KEY=${API_KEY} HF_TOKEN=${HF_TOKEN}
 
 # Run the application
 CMD ["uv", "run", "src"]

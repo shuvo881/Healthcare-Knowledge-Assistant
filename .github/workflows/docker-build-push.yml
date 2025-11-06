@@ -25,12 +25,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Create .env file from secret
-        run: echo "${{ secrets.ENV_FILE_CONTENT }}" > .env
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
+          build-args: |
+            API_KEY=${{ secrets.API_KEY }}
+            HF_TOKEN=${{ secrets.HF_TOKEN }}
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:latest

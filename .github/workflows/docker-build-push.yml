@@ -2,10 +2,10 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [main]
+    branches: [features]
     tags: ['v*']
   pull_request:
-    branches: [main]
+    branches: [features]
   workflow_dispatch:
 
 env:

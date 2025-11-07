@@ -6,5 +6,5 @@ if __name__ == "__main__":
         host="0.0.0.0",       # accessible on all network interfaces
         port=8000,            # port number
         reload=True,          # auto-reload on code changes
-        log_level="info"      # can be "debug", "info", "warning", etc.
+        log_level="info"      # log level
     )
